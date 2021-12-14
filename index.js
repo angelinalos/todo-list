@@ -39,6 +39,16 @@ let tasks = [
     return header
   }
 
+    // Loading
+function createLoading() {
+    const loading = createElement("div", 'd-flex justify-content-center mb-2')
+    const spinner1 = createElement('div', 'spinner-grow spinner-grow-sm text-danger')
+    const spinner2 = createElement('div', 'spinner-grow spinner-grow-sm text-danger')
+    const spinner3 = createElement('div', 'spinner-grow spinner-grow-sm text-danger')
+    loading.append(spinner1,spinner2,spinner3)
+    return loading
+} 
+
   // Elements
   function createElement(tag, className, text = "", style) {
     const element = document.createElement(tag)
