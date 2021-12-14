@@ -19,6 +19,13 @@ let tasks = [
     //   },
   ]
   
+  // App
+const root = document.querySelector("#root")
+const header = createHeader()
+const loading = createLoading()
+const main = createMain(tasks)
+root.append(header, loading, main)
+
 //   Header
   function createHeader() {
     const header = createElement(
