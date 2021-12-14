@@ -31,7 +31,6 @@ root.append(header, loading, main)
 
 // // Header handler
 const onHeaderClick = (event) => {
-    // как сделать деструктуризацию я умерла на ней
     switch (event.target.id) {
       case "add":
         const task = {
@@ -41,9 +40,13 @@ const onHeaderClick = (event) => {
           date: new Date().toDateString()
         }
         tasks.push(task)
+        render()
+        fill()
         break
       case "delete":
         tasks.length = 0
+        render()
+        fill()
         break
     }
   }
@@ -66,6 +69,26 @@ const onHeaderClick = (event) => {
     btnAdd.id = "add"
     header.append(btnDelete, input, btnAdd)
     return header
+  }
+
+  // Render
+
+// 1.
+const render = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+    const main = document.querySelector("#root")
+    main.removeChild(main.lastChild)
+  }
+
+  // 2.
+  const fill = () => {
+    if (localStorage.getItem("tasks")) {
+      tasks = JSON.parse(localStorage.getItem("tasks"))
+      let main = createMain(tasks)
+      main.addEventListener("change", (event) => onMainChange(event))
+      main.addEventListener("click", (event) => onMainClick(event))
+      root.append(main)
+    }
   }
 
     // Loading
