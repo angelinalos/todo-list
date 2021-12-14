@@ -49,6 +49,41 @@ function createLoading() {
     return loading
 } 
 
+// Main
+function createMain(tasks) {
+    const main = createElement("main", "d-flex flex-column  gap-2 ")
+    tasks.forEach((task) => {
+      const card = createCard(task)
+      main.append(card)
+    })
+    return main
+  }
+
+  // // Card
+  function createCard(task) {
+    const card = createElement(
+      "div",
+      "d-flex align-items-center gap-3 border border-danger"
+    )
+    const input = createElement("input", "form-check-input")
+    const progress = createElement("div", "")
+    input.id = task.id
+    input.type = "checkbox"
+    input.checked = task.isComplited
+    const toDoText = createElement(
+      "span",
+      "text-break m-0 flex-grow-1",
+      task.text
+    )
+    const date = createElement("span", "m-0 badge bg-danger", task.date)
+    const btnDelete = createElement("button", "btn-close-white")
+    btnDelete.id = task.id
+    btnDelete.tag = "button"
+    card.append(input, progress, toDoText, date, btnDelete)
+
+    return card
+  }
+
   // Elements
   function createElement(tag, className, text = "", style) {
     const element = document.createElement(tag)
