@@ -25,6 +25,7 @@ const header = createHeader()
 const loading = createLoading()
 const main = createMain(tasks)
 header.addEventListener("click", (event) => onHeaderClick(event))
+main.addEventListener("change", (event) => onMainChange(event))
 root.append(header, loading, main)
 
 // Handlers
@@ -49,6 +50,30 @@ const onHeaderClick = (event) => {
         fill()
         break
     }
+  }
+
+   // // Main handler
+
+// // // add
+const onMainChange = (event) => {
+    let id = event.target.getAttribute("id")
+    const root = document.querySelector("#root")
+    const main = root.lastChild.children[event.target.id].children[1]
+    if (id === event.target.id && event.target.checked === true) {
+      main.classList.add("progress")
+      main.classList.add("progress-bar")
+      main.classList.add("progress-bar-striped")
+      main.classList.add("progress-bar-animated")
+      main.classList.add("text-secondary")
+      main.style.width="2%"
+
+  } else {main.classList.remove("progress")
+    main.classList.remove("progress-bar")
+    main.classList.remove("progress-bar-striped")
+    main.classList.remove("progress-bar-animated")
+    main.classList.remove("text-secondary")
+
+  }
   }
 
 //   Header
