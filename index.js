@@ -24,7 +24,29 @@ const root = document.querySelector("#root")
 const header = createHeader()
 const loading = createLoading()
 const main = createMain(tasks)
+header.addEventListener("click", (event) => onHeaderClick(event))
 root.append(header, loading, main)
+
+// Handlers
+
+// // Header handler
+const onHeaderClick = (event) => {
+    // как сделать деструктуризацию я умерла на ней
+    switch (event.target.id) {
+      case "add":
+        const task = {
+          id: tasks.length ,
+          text: event.target.previousElementSibling.value,
+          isComplited: false,
+          date: new Date().toDateString()
+        }
+        tasks.push(task)
+        break
+      case "delete":
+        tasks.length = 0
+        break
+    }
+  }
 
 //   Header
   function createHeader() {
