@@ -26,6 +26,7 @@ const loading = createLoading()
 const main = createMain(tasks)
 header.addEventListener("click", (event) => onHeaderClick(event))
 main.addEventListener("change", (event) => onMainChange(event))
+main.addEventListener("click", (event) => onMainClick(event))
 root.append(header, loading, main)
 
 // Handlers
@@ -74,6 +75,16 @@ const onMainChange = (event) => {
     main.classList.remove("text-secondary")
 
   }
+  }
+
+    // // // delete
+const onMainClick = (event) => {
+    let id = event.target.getAttribute("id")
+    const root = document.querySelector("#root")
+    const card = root.lastChild
+    if (id === event.target.id && event.target.tag === "button") {
+    card.removeChild(card.children[id])
+    }
   }
 
 //   Header
