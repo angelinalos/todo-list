@@ -1,6 +1,15 @@
+let tasks = [
+    {
+        id: 1,
+        text: "=^.^=",
+        isCompleted: false,
+        date: new Date().toLocaleDateString()
+    }
+]
 const root = document.querySelector("#root") 
 const header = createHeader()
 const main = createMain(tasks)
+header.addEventListener('click', (event) => onHeaderClick(event))
 root.append(header, main)
 
 //   Header
@@ -15,6 +24,31 @@ function createHeader() {
     btnAdd.id = "add"
     header.append(btnAdd, btnDelete)
     return header
+  }
+
+  
+// Handlers
+const onHeaderClick = (event) => {
+    switch (event.target.id) {
+      case "add":
+          if (document.getElementById('enter').value === ''){
+              document.getElementById('enter').focus()
+              break
+          }
+        const task = {
+          id: tasks.length + 1 ,
+          text: document.getElementById('enter').value,
+          isCompleted: false,
+          date: new Date().toLocaleDateString(),
+        }
+        tasks.push(task)
+        render(tasks)
+        break
+      case "delete":
+        tasks.length = 0
+        render(tasks)
+        break
+    }
   }
 
   // Main
