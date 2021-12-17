@@ -1,5 +1,7 @@
 const root = document.querySelector("#root") 
 const header = createHeader()
+const main = createMain(tasks)
+root.append(header, main)
 
 //   Header
 function createHeader() {
@@ -28,6 +30,28 @@ function createMain(tasks) {
     return main
   }
 
+// // Card
+function createCard(task) {
+    const card = createElement(
+      "div",
+      "flex flex-row justify-between relative place-items-center rounded-full shadow-md shadow-cyan-500 gap-4 px-1 lg:px-6 w-52 md:w-96"
+    )
+    card.id = task.id
+    const input = createElement("input", "accent-gray-100")
+    input.id = task.id
+    input.type = "checkbox"
+    input.checked = task.isCompleted
+    const text = createElement(
+        "span",
+        "text-gray-100 text-sm break-words lg:break-normal", task.text
+      )
+      const date = createElement("span", "rounded-lg mx-3 text-white text-xs absolute bottom-0 right-0 mb-7 lg:mb-11 text-blue-600/75", 
+      task.date
+      )
+      card.append(input, text, date, btnDelete)
+    return card
+  }
+  
 // Elements
 function createElement(tag, className, text = "") {
     const element = document.createElement(tag)
