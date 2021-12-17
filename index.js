@@ -104,6 +104,15 @@ function createCard(task) {
       const date = createElement("span", "rounded-lg mx-3 text-white text-xs absolute bottom-0 right-0 mb-7 lg:mb-11 text-blue-600/75", 
       task.date
       )
+       // ////// Active delete
+    const btnDelete = createElement("button", "font-light rounded-md p-1 m-2 shadow-sm shadow-slate-800 text-gray-100", "rm")
+    btnDelete.id = task.id
+    btnDelete.addEventListener("click", () => {
+        const newList = tasks.filter(event => event.id !== task.id)
+        tasks = newList
+        render(tasks)
+        return tasks
+    })
       card.append(input, text, date, btnDelete)
     return card
   }
