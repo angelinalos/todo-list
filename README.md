@@ -5,7 +5,7 @@
 
 ![Todo-list](Todo-list.jpg)
 ___
-
+[CHECK IT OUT](https://angelinalos.github.io/todo-list/)
 ___
 ``` 
 Tools were used:
