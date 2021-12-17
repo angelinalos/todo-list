@@ -1,7 +1,11 @@
-#__Todo <__li__>st__
+# Todo `<__li__>`st
+
+
+
+
 ![Todo-list](Todo-list.jpg)
 ___
-
+[CHECK IT OUT](https://angelinalos.github.io/todo-list/)
 ___
 ``` 
 Tools were used:
