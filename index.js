@@ -51,6 +51,16 @@ const onHeaderClick = (event) => {
     }
   }
 
+// Render
+function render(tasks) {
+    const main = createMain(tasks)
+    root.innerHTML = ""
+    root.append(
+      header,
+      main
+    )
+  }
+
   // Main
 function createMain(tasks) {
     const main = createElement("main", "main flex flex-col mx-9 my-3 gap-6")
