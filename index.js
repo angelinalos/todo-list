@@ -85,6 +85,18 @@ function createCard(task) {
     input.id = task.id
     input.type = "checkbox"
     input.checked = task.isCompleted
+    // /////////// Active checkbox
+    input.addEventListener('click', () => {
+        if (input.checked) {
+            task.isCompleted = true
+            card.classList.remove('shadow-cyan-500')
+            card.classList.add('shadow-red-500')
+          } else {
+            task.isCompleted = false
+            card.classList.add('shadow-cyan-500')
+            card.classList.remove('shadow-red-500')
+          }
+        })    
     const text = createElement(
         "span",
         "text-gray-100 text-sm break-words lg:break-normal", task.text
