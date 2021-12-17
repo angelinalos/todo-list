@@ -3,7 +3,7 @@
 
 
 
-![Todo-list](Todo-list.jpg)
+![Todo-list](Todo-list2.jpg)
 ___
 [CHECK IT OUT](https://angelinalos.github.io/todo-list/)
 ___
